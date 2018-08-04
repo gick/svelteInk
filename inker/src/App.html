@@ -1,0 +1,29 @@
+<h1>Helddedddddddlo!</h1>
+<ul>
+{#each $gmOperations as operation}
+<li>
+	<GmOperation name={operation.name} args={operation.args}></GmOperation>
+</li>
+{/each}
+</ul>
+<style>
+	h1 {
+		color: purple;
+	}
+</style>
+<script>
+import GmOperation from './GmOperation.html'
+
+export default{
+
+oncreate() {
+	this.store.fetchGm()
+},
+components:{
+	GmOperation
+},
+data() {
+	return {
+	}
+}}
+</script>
