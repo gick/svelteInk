@@ -1,0 +1,28 @@
+-flatten
+flatten a sequence of images
+In some file formats (e.g. Photoshop's PSD) complex images may be represented by
+"layers" (independent images) which must be composited in order to obtain the
+final rendition. The -flatten option accomplishes this composition. The sequence
+of images is replaced by a single image created by compositing each image in
+turn, while respecting composition operators and page offsets. While-flatten is
+immediately useful for eliminating layers, it is also useful as a
+general-purpose composition tool.
+The sequence of images is terminated by the appearance of any option. If the
+-flatten option appears after all of the input images, all images are flattened.
+Also see -mosaic which is similar to-flatten except that it adds a
+suitably-sized canvas base image.
+For example, this composites an image on top of a 640x400 transparent black
+canvas image:
+
+gm convert -size 640x300 xc:transparent \
+-compose over -page +0-100 \
+frame.png -flatten output.png
+
+
+
+and this flattens a Photoshop PSD file:
+
+gm convert input.psd -flatten output.png
+
+
+

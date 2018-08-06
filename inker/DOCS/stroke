@@ -1,0 +1,4 @@
+-stroke <color>
+color to use when stroking a graphic primitive
+The color is specified using the format described under the -filloption.
+See -draw for further details.

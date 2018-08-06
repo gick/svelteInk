@@ -1,0 +1,25 @@
+-asc-cdl <spec>
+apply ASC CDL color transform
+Applies ("bakes in") the ASC CDL, which is a format for the exchange of basic
+primary color grading information between equipment and software from different
+manufacturers. The format defines the math for three functions: slope, offset
+and power. Each function uses a number for the red, green, and blue color
+channels for a total of nine numbers comprising a single color decision. The
+tenth number (optional) is for chromiance (saturation) as specified by ASC CDL
+1.2.
+The argument string is comma delimited and is in the following form (but without
+invervening spaces or line breaks)
+
+redslope,redoffset,redpower:
+greenslope,greenoffset,greenpower:
+blueslope,blueoffset,bluepower:
+saturation
+
+
+
+with the unity (no change) specification being:
+
+"1.0,0.0,1.0:1.0,0.0,1.0:1.0,0.0,1.0:1.0"
+
+
+

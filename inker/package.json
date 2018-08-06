@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack-serve --content public --hot"
+    "dev": "webpack-serve  --hot"
   },
   "dependencies": {
     "svelte-extras": "^2.0.2"

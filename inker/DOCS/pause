@@ -1,0 +1,3 @@
+-pause <seconds>
+pause between snapshots [import]
+Pause for the specified number of seconds before taking the next snapshot.

@@ -1,0 +1,8 @@
+-thumbnail <width>x<height>{%}{@}{!}{<}{>}
+resize an image (quickly)
+The -thumbnail command resizes the image as quickly as possible, with more
+concern for speed than resulting image quality. Regardless, resulting image
+quality should be acceptable for many uses. It is primarily intended to be used
+to generate smaller versions of the image, but may also be used to enlarge the
+image. The-thumbnail geometry argument observes the same syntax and rules as it
+does for -resize.

@@ -1,0 +1,9 @@
+-virtual-pixel <method>
+specify contents of "virtual pixels"
+This option defines "virtual pixels" for use in operations that can access
+pixels outside the boundaries of an image.
+Choose from these methods:
+ConstantUse the image background color.EdgeExtend the edge pixel toward infinity
+(default).MirrorMirror the image.TileTile the image.
+This option affects operations that use virtual pixels such as -blur, -sharpen,
+-wave, etc.

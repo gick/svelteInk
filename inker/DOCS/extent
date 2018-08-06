@@ -1,0 +1,28 @@
+-extent <width>x<height>{+-}<x>{+-}<y>
+composite image on background color canvas image
+This option composites the image on a new background color (-background) canvas
+image of size <width>x<height>. The existing image content is composited at the
+position specified by geometry x and y offset and/or desired gravity (-gravity)
+using the current image compose (-compose) method. Image content which falls
+outside the bounds of the new image dimensions is discarded.
+For example, this command creates a thumbnail of an image, and centers it on a
+red color backdrop image, offsetting the canvas ten pixels to the left and five
+pixels up, with respect to the thumbnail:
+
+gm convert infile.jpg -thumbnail 120x80 -background red -gravity center \
+-extent 140x100-10-5 outfile.jpg
+
+
+
+This command reduces or expands a JPEG image to fit on an 800x600 display:
+
+gm convert -size 800x600 input.jpg \
+-resize 800x600 -background black \
+-compose Copy -gravity center \
+-extent 800x600 \
+-quality 92 output.jpg
+
+
+
+If the aspect ratio of the input image isn't exactly 4:3, then the image is
+centered on an 800x600 black canvas.

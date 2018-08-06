@@ -1,0 +1,4 @@
+-display <host:display[.screen]>
+specifies the X server to contact
+This option is used with convert for obtaining image or font from this X server.
+See X(1).

@@ -1,0 +1,39 @@
+-type <type>
+the image type
+Choose from:Bilevel, Grayscale, Palette,PaletteMatte, TrueColor, TrueColorMatte,
+ColorSeparation, ColorSeparationMatte, or Optimize.
+Normally, when a format supports different subformats such as bilevel,
+grayscale, palette, truecolor, and truecolor+alpha, the encoder will try to
+choose a suitable subformat based on the nature of the image. The-type option
+may be used to tailor the output subformat. By default the output subformat is
+based on readily available image information and is usually similar to the input
+format.
+Specify -type Optimize in order to enable inspecting all pixels (if necessary)
+in order to find the most efficient subformat. Inspecting all of the pixels may
+be slow for very large images, particularly if they are stored in a disk cache.
+If an RGB image contains only gray pixels, then every pixel in the image must be
+inspected in order to decide that the image is actually grayscale!
+Sometimes a specific subformat is desired. For example, to force a JPEG image to
+be written in TrueColor RGB format even though only gray pixels are present, use
+
+
+gm convert bird.pgm -type TrueColor bird.jpg
+
+
+
+Similarly, using -type TrueColorMatte will force the encoder to write an alpha
+channel even though the image is opaque, if the output format supports
+transparency.
+Some pseudo-formats (e.g. the XC format) will respect the requested type if it
+occurs previously on the command line. For example, to obtain a DirectClass
+solid color canvas image rather than PsuedoClass, use
+
+gm convert -size 640x480 -type TrueColor xc:red red.miff
+
+
+
+Likewise, specify -type Bilevel, Grayscale,TrueColor, or TrueColorMatte prior to
+reading a Postscript (or PDF file) in order to influence the type of image that
+Ghostcript returns. Reading performance will be dramatically improved for
+black/white Postscript if Bilevel is specified, and will be considerably faster
+if Grayscale is specified.

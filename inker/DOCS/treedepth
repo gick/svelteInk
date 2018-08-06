@@ -1,0 +1,11 @@
+-treedepth <value>
+tree depth for the color reduction algorithm
+Normally, this integer value is zero or one. A value of zero or one causes the
+use of an optimal tree depth for the color reduction algorithm
+An optimal depth generally allows the best representation of the source image
+with the fastest computational speed and the least amount of memory. However,
+the default depth is inappropriate for some images. To assure the best
+representation, try values between 2 and 8 for this parameter. Refer toquantize
+[quantize.html] for more details.
+The -colors or -monochrome option, or writing to an image format which requires
+color reduction, is required for this option to take effect.

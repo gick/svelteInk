@@ -1,0 +1,6 @@
+-create-directories
+create output directory if required
+Use this option with -output-directory if the input paths contain subdirectories
+and it is desired to create similar subdirectories in the output directory.
+Without this option, mogrify will fail if the required output directory does not
+exist.

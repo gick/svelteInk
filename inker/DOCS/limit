@@ -1,0 +1,31 @@
+-limit <type> <value>
+Disk, File, Map, Memory, Pixels, Width, Height or Threads resource limit
+By default, resource limits are estimated based on the available resources of
+the system. The resource limits are Disk, maximum total disk space consumed;
+File, maximum number of file descriptors allowed to be open at once; Map,
+maximum total number of file bytes which may be memory mapped; Memory, maximum
+total number of bytes of heap memory used for image storage;Pixels, maximum
+absolute image size (per image); Width, maximum image pixels width; Height,
+maximum image pixels height; and Threads, the maximum number of worker threads
+to use per OpenMP thread team.
+These resource limits are used to decide if (for a given image) the decoded
+image ("pixel cache") should be stored in heap memory (RAM), in a memory-mapped
+disk file, or in a disk file accessed via read/write I/O. The number of total
+pixels in one image, and/or the width/height, may also be limited in order to
+force the reading, or creation of images larger than the limit (in pixels) to
+intentionally fail. The disk limit establishes an overall limit since using the
+disk is the means of last resort. When the disk limit has been reached, no more
+images may be read.
+The value argument is an absolute value, but may have standard binary suffix
+characters applied ('K', 'M', 'G', 'T', 'P', 'E') to apply a scaling to the
+value (based on a multiplier of 1024). Any additional characters are ignored.
+For example, '-limit Pixels 10MP' limits the maximum image size to 10 megapixels
+and '-limit memory 32MB -limit map 64MB' limits memory and memory mapped files
+to 32 megabytes and 64 megabytes respectively.
+Resource limits may also be set using environment variables. The environment
+variables MAGICK_LIMIT_DISK,MAGICK_LIMIT_FILES, MAGICK_LIMIT_MAP,
+MAGICK_LIMIT_MEMORY, MAGICK_LIMIT_PIXELS,MAGICK_LIMIT_WIDTH, MAGICK_LIMIT_HEIGHT
+,andOMP_NUM_THREADS may be used to set the limits for disk space, open files,
+memory mapped size, heap memory, per-image pixels, image width, image height,
+and threads respectively.
+Use the option -list resource list the current limits.

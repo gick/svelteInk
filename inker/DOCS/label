@@ -1,0 +1,28 @@
+-label <name>
+assign a label to an image
+Use this option to assign a specific label to the image, when writing to an
+image format that supports labels, such as TIFF, PNG, MIFF, or PostScript. You
+can include the the image filename, type, width, height, or other image
+attribute by embedding special format character. A label is not drawn on the
+image, but is embedded in the image datastream via a "Label" tag or similar
+mechanism. If you want the label to be visible on the image itself, use the
+-draw option. See -comment for details.
+For example,
+
+-label "%m:%f %wx%h"
+
+
+
+produces an image label of MIFF:bird.miff 512x480 for an image titledbird.miff
+and whose width is 512 and height is 480.
+If the first character of string is @, the image label is read from a file
+titled by the remaining characters in the string.
+If the -label option appears multiple times, only the last label is stored.
+In PNG images, the label is stored in a tEXt or zTXt chunk with the keyword
+"label".
+When converting to PostScript, use this option to specify a header string to
+print above the image. Specify the label font with-font.
+When creating a montage, by default the label associated with an image is
+displayed with the corresponding tile in the montage. Use the+label option to
+suppress this behavior.
+

@@ -1,0 +1,6 @@
+-list <type>
+the type of list
+Choices are: Color, Delegate, Format, Magic,Module, Resource, or Type. The
+Module option is only available if GraphicsMagick was built to support loadable
+modules.
+This option lists information about the GraphicsMagick configuration.

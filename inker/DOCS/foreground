@@ -1,0 +1,3 @@
+-foreground <color>
+define the foreground color
+The color is specified using the format described under the -filloption.

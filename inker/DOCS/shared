@@ -1,0 +1,6 @@
+-shared-memory
+use shared memory
+This option specifies whether the utility should attempt to use shared memory
+for pixmaps. GraphicsMagick must be compiled with shared memory support, and the
+display must support the MIT-SHMextension. Otherwise, this option is ignored.
+The default isTrue.

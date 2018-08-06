@@ -1,0 +1,9 @@
+-colormap <type>
+define the colormap type
+Choose between shared or private.
+This option only applies when the default X server visual is PseudoColoror
+GRAYScale. Refer to -visual for more details. By default, a shared colormap is
+allocated. The image shares colors with other X clients. Some image colors could
+be approximated, therefore your image may look very different than intended.
+Choose Private and the image colors appear exactly as they are defined. However,
+other clients may go technicolor when the image colormap is installed.

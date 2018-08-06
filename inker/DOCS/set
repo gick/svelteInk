@@ -1,0 +1,4 @@
+-set <attribute> <value>
+set an image attribute
+Set a named image attribute. The attribute is set on the current (previously
+specified on command line) image.

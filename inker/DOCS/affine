@@ -1,0 +1,4 @@
+-affine <matrix>
+drawing transform matrix
+This option provides a transform matrix {sx,rx,ry,sy,tx,ty} for use by
+subsequent -draw or -transform options.

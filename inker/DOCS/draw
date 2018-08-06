@@ -1,0 +1,150 @@
+-draw <string>
+annotate an image with one or more graphic primitives
+Use this option to annotate an image with one or more graphic primitives. The
+primitives include shapes, text, transformations, and pixel operations. The
+shape primitives are
+
+point           x,y
+line            x0,y0 x1,y1
+rectangle       x0,y0 x1,y1
+roundRectangle  x0,y0 x1,y1 wc,hc
+arc             x0,y0 x1,y1 a0,a1
+ellipse         x0,y0 rx,ry a0,a1
+circle          x0,y0 x1,y1
+polyline        x0,y0  ...  xn,yn
+polygon         x0,y0  ...  xn,yn
+Bezier          x0,y0  ...  xn,yn
+path            path specification
+image           operator x0,y0 w,h filename
+
+
+
+The text primitive is
+
+text            x0,y0 string
+
+
+
+The text gravity primitive is
+
+gravity         NorthWest, North, NorthEast, West, Center,
+East, SouthWest, South, or SouthEast
+
+
+
+The text gravity primitive only affects the placement of text and does not
+interact with the other primitives. It is equivalent to using the -gravity
+commandline option, except that it is limited in scope to the -draw option in
+which it appears.
+The transformation primitives are
+
+rotate          degrees
+translate       dx,dy
+scale           sx,sy
+skewX           degrees
+skewY           degrees
+
+
+
+The pixel operation primitives are
+
+color           x0,y0 method
+matte           x0,y0 method
+
+
+
+The shape primitives are drawn in the color specified in the preceding-stroke
+option. Except for the line and pointprimitives, they are filled with the color
+specified in the preceding-fill option. For unfilled shapes, use -fill none.
+Point requires a single coordinate.
+Line requires a start and end coordinate.
+Rectangleexpects an upper left and lower right coordinate.
+RoundRectangle has the upper left and lower right coordinates and the width and
+height of the corners.
+Circle has a center coordinate and a coordinate for the outer edge.
+Use Arc to inscribe an elliptical arc within a rectangle. Arcs require a start
+and end point as well as the degree of rotation (e.g. 130,30 200,100 45,90).
+Use Ellipse to draw a partial ellipse centered at the given point with the
+x-axis and y-axis radius and start and end of arc in degrees (e.g. 100,100
+100,150 0,360).
+Finally, polyline and polygon require three or more coordinates to define its
+boundaries. Coordinates are integers separated by an optional comma. For
+example, to define a circle centered at 100,100 that extends to 150,150 use:
+
+-draw 'circle 100,100 150,150'
+
+
+
+Paths(See Paths [http://www.w3.org/TR/SVG/paths.html]) represent an outline of
+an object which is defined in terms of moveto (set a new current point), lineto
+(draw a straight line), curveto (draw a curve using a cubic Bezier), arc
+(elliptical or circular arc) and closepath (close the current shape by drawing a
+line to the last moveto) elements. Compound paths (i.e., a path with subpaths,
+each consisting of a single moveto followed by one or more line or curve
+operations) are possible to allow effects such as "donut holes" in objects.
+Use image to composite an image with another image. Follow the image keyword
+with the composite operator, image location, image size, and filename:
+
+-draw 'image Over 100,100 225,225 image.jpg'
+
+
+
+You can use 0,0 for the image size, which means to use the actual dimensions
+found in the image header. Otherwise, it will be scaled to the given dimensions.
+See -compose for a description of the composite operators.
+Use text to annotate an image with text. Follow the text coordinates with a
+string. If the string has embedded spaces, enclose it in single or double
+quotes. Optionally you can include the image filename, type, width, height, or
+other image attribute by embedding special format character. See -comment for
+details.
+For example,
+
+-draw 'text 100,100 "%m:%f %wx%h"'
+
+
+
+annotates the image with MIFF:bird.miff 512x480 for an image titledbird.miffand
+whose width is 512 and height is 480.
+If the first character of string is @, the text is read from a file titled by
+the remaining characters in the string.
+Rotate rotates subsequent shape primitives and text primitives about the origin
+of the main image. If the -region option precedes the-draw option, the origin
+for transformations is the upper left corner of the region.
+Translate translates them.
+Scale scales them.
+SkewX and SkewY skew them with respect to the origin of the main image or the
+region.
+The transformations modify the current affine matrix, which is initialized from
+the initial affine matrix defined by the -affine option. Transformations are
+cumulative within the -draw option. The initial affine matrix is not affected;
+that matrix is only changed by the appearance of another -affine option. If
+another -drawoption appears, the current affine matrix is reinitialized from the
+initial affine matrix.
+Use color to change the color of a pixel to the fill color (see-fill). Follow
+the pixel coordinate with a method:
+
+point
+replace
+floodfill
+filltoborder
+reset
+
+
+
+Consider the target pixel as that specified by your coordinate. Thepointmethod
+recolors the target pixel. The replace method recolors any pixel that matches
+the color of the target pixel.Floodfill recolors any pixel that matches the
+color of the target pixel and is a neighbor, whereas filltoborder recolors any
+neighbor pixel that is not the border color. Finally, reset recolors all pixels.
+
+Use matte to the change the pixel matte value to transparent. Follow the pixel
+coordinate with a method (see the color primitive for a description of methods).
+The point method changes the matte value of the target pixel. The replace method
+changes the matte value of any pixel that matches the color of the target pixel.
+Floodfillchanges the matte value of any pixel that matches the color of the
+target pixel and is a neighbor, whereasfilltoborder changes the matte value of
+any neighbor pixel that is not the border color (-bordercolor). Finally reset
+changes the matte value of all pixels.
+You can set the primitive color, font, and font bounding box color with-fill,
+-font, and -box respectively. Options are processed in command line order so be
+sure to use these options before the -draw option.

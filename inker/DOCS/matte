@@ -1,0 +1,5 @@
+-matte
+store matte channel if the image has one
+If the image does not have a matte channel, create an opaque one.
+Use +matte to ignore the matte channel and to avoid writing a matte channel in
+the output file.

@@ -1,0 +1,28 @@
+-profile <filename>
+add ICM, IPTC, or generic profile to image
+-profile filename adds an ICM (ICC color management), IPTC (newswire
+information), or a generic (including Exif) profile to the image.
+Use +profile icm, +profile iptc, or+profile profile_name to remove the
+respective profile. Multiple profiles may be listed, separated by commas.
+Profiles may be excluded from subsequent listed matches by preceding their name
+with an exclamation point. For example, +profile '!icm,*' strips all profiles
+except for the ICM profile. Use identify -verbose to find out what profiles are
+in the image file. Use+profile "*" to remove all profiles.
+Writing the image to a format that does not support profiles will of course also
+cause all profiles to be removed. The JPEG and PNG formats will store any
+profiles that have been read and not removed. In JPEG they are stored in APP1
+markers, and in PNG they are stored as hex-coded binary in compressed zTXt
+chunks, except for the iCC chunk which is stored in the iCCP chunk.
+To extract a profile, the -profile option is not used. Instead, simply write the
+file to an image format such as APP1, 8BIM, ICM, or IPTC.
+For example, to extract the Exif data (which is stored in JPEG files in the APP1
+profile), use
+
+gm convert cockatoo.jpg exifdata.app1
+
+
+
+Note that GraphicsMagick does not attempt to update any profile to reflect
+changes made to the image, e.g., rotation from portrait to landscape
+orientation, so it is possible that the preserved profile may contain invalid
+data.

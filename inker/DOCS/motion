@@ -1,0 +1,7 @@
+-motion-blur <radius>{x<sigma>}{+angle}
+Simulate motion blur
+Simulate motion blur by convolving the image with a Gaussian operator of the
+given radius and standard deviation (sigma). For reasonable results, radius
+should be larger than sigma. If radius is zero, then a suitable radius is
+automatically selected based on sigma. The angle specifies the angle that the
+object is coming from (side which is blurred).

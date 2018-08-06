@@ -1,0 +1,3 @@
+-mattecolor <color>
+specify the color to be used with the -frame option
+The color is specified using the format described under the -filloption.

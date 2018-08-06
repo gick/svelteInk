@@ -1,0 +1,4 @@
+-box <color>
+set the color of the annotation bounding box
+The color is specified using the format described under the -filloption.
+See -draw for further details.

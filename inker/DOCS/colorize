@@ -1,0 +1,13 @@
+-colorize <value>
+colorize the image with the pen color
+Specify the amount of colorization as a percentage. You can apply separate
+colorization values to the red, green, and blue channels of the image with a
+colorization value list delimited with slashes (e.g. 0/0/50).
+The -colorize option may be used in conjunction with -modulateto produce a nice
+sepia toned image like:
+
+gm convert input.ppm -modulate 115,0,100 \
+-colorize 7,21,50 output.ppm.
+
+
+

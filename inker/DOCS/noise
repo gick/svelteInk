@@ -1,0 +1,22 @@
+-noise <radius|type>
+add or reduce noise in an image
+The principal function of noise peak elimination filter is to smooth the objects
+within an image without losing edge information and without creating undesired
+structures. The central idea of the algorithm is to replace a pixel with its
+next neighbor in value within a pixel window, if this pixel has been found to be
+noise. A pixel is defined as noise if and only if this pixel is a maximum or
+minimum within the pixel window.
+Use radius to specify the width of the neighborhood.
+Use +noise followed by a noise type to add noise to an image. The noise added
+modulates the existing image pixels. Choose from these noise types:
+
+Uniform
+Gaussian
+Multiplicative
+Impulse
+Laplacian
+Poisson
+Random (uniform distribution)
+
+
+

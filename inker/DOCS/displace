@@ -1,0 +1,9 @@
+-displace <horizontal scale>x<vertical
+scale>
+shift image pixels as defined by a displacement map
+With this option, composite image is used as a displacement map. Black, within
+the displacement map, is a maximum positive displacement. White is a maximum
+negative displacement and middle gray is neutral. The displacement is scaled to
+determine the pixel shift. By default, the displacement applies in both the
+horizontal and vertical directions. However, if you specifymask, composite image
+is the horizontal X displacement andmask the vertical Y displacement.

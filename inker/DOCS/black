@@ -1,0 +1,11 @@
+-black-threshold
+red[,green][,blue][,opacity]
+pixels below the threshold become black
+Use -black-threshold to set pixels with values below the specified threshold to
+minimum value (black). If only one value is supplied, or the red, green, and
+blue values are identical, then intensity thresholding is used. If the color
+threshold values are not identical then channel-based thresholding is used, and
+color distortion will occur. Specify a negative value (e.g. -1) if you want a
+channel to be ignored but you do want to threshold a channel later in the list.
+If a percent (%) symbol is appended, then the values are treated as a percentage
+of maximum range.

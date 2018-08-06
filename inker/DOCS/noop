@@ -1,0 +1,4 @@
+-noop
+NOOP (no option)
+The -noop option can be used to terminate a group of images and reset all
+options to their default values, when no other option is desired.

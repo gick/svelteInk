@@ -1,0 +1,27 @@
+-filter <type>
+use this type of filter when resizing an image
+Use this option to affect the resizing operation of an image (see-geometry).
+Choose from these filters (ordered by approximate increasing CPU time):
+
+Point
+Box
+Triangle
+Hermite
+Hanning
+Hamming
+Blackman
+Gaussian
+Quadratic
+Cubic
+Catrom
+Mitchell
+Lanczos
+Bessel
+Sinc
+
+
+
+The default filter is automatically selected to provide the best quality while
+consuming a reasonable amount of time. The Mitchell filter is used if the image
+supports a palette, supports a matte channel, or is being enlarged, otherwise
+the Lanczos filter is used.

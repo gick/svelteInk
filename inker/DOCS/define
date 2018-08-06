@@ -1,0 +1,196 @@
+-define <key>{=<value>},...
+add coder/decoder specific options
+This option creates one or more definitions for coders and decoders to use while
+reading and writing image data. Definitions may be passed to coders and decoders
+to control options that are specific to certain image formats. If value is
+missing for a definition, an empty-valued definition of a flag will be created
+with that name. This is used to control on/off options. Use +define <key>,... to
+remove definitions previously created. Use+define "*" to remove all existing
+definitions.
+The following definitions may be created:
+cineon:colorspace={rgb|cineonlog}Use the cineon:colorspace option when reading a
+Cineon file to specify the colorspace the Cineon file uses. This overrides the
+colorspace type implied by the DPX header (if any).dpx:bits-per-sample=<value>If
+the dpx:bits-per-sample key is defined, GraphicsMagick will write DPX images
+with the specified bits per sample, overriding any existing depth value. If this
+option is not specified, then the value is based on the existing image depth
+value from the original image file. The DPX standard supports bits per sample
+values of 1, 8, 10, 12, and 16. Many DPX readers demand a sample size of 10 bits
+with type A padding (see below).dpx:colorspace={rgb|cineonlog}Use the
+dpx:colorspace option when reading a DPX file to specify the colorspace the DPX
+file uses. This overrides the colorspace type implied by the DPX header (if
+any).dpx:packing-method={packed|a|b|lsbpad|msbpad}DPX samples are output within
+32-bit words. They may be tightly packed end-to-end within the words ("packed"),
+padded with null bits to the right of the sample ("a" or "lsbpad), or padded
+with null bits to the left of the sample ("b" or "msbpad"). This option only has
+an effect for sample sizes of 10 or 12 bits. If samples are not packed, the DPX
+standard recommends type A padding. Many DPX readers demand a sample size of 10
+bits with type A padding.dpx:pixel-endian={lsb|msb}Allows the user to specify
+the endian order of the pixels when reading or writing the DPX files. Sometimes
+this is useful if the file is (or must be) written incorrectly so that the file
+header and the pixels use different endianness.dpx:swap-samples={true|false}
+GraphicsMagick strives to adhere to the DPX standard but certain aspects of the
+standard can be quite confusing. As a result, some 10-bit DPX files have Red and
+Blue interchanged, or Cb and Cr interchanged due to an different interpretation
+of the standard, or getting the wires crossed. The swap-samples option may be
+supplied when reading or writing in order to read or write using the necessary
+sample order.jp2:rate=<value>Specify the compression factor to use while writing
+JPEG-2000 files. The compression factor is the reciprocal of the compression
+ratio. The valid range is 0.0 to 1.0, with 1.0 indicating lossless compression.
+If defined, this value overrides the -quality setting. The default quality
+setting of 75 results in a rate value of 0.06641.
+jpeg:block-smoothing={true|false}Enables or disables block smoothing when
+reading a JPEG file (default enabled).jpeg:dct-method=<value>Selects the IJG
+JPEG library DCT implementation to use. The encoding implementations vary in
+speed and encoding error. The available choices for value are islow, ifast,float
+, default and fastest. Note thatfastest might not necessarily be fastest on your
+CPU, depending on the choices made when the JPEG library was built and how your
+CPU behaves.jpeg:fancy-upsampling={true|false}Enables or disables fancy
+upsampling when reading a JPEG file (default enabled).jpeg:max-warnings=<value>
+Specifies an integer value for how many warnings are allowed for any given error
+type before being promoted to a hard error. JPEG files producing excessive
+warnings indicate a problem with the file.jpeg:optimize-coding={true|false}
+Selects if huffman encoding should be used. Huffman encoding is enabled by
+default, but may be disabled for very large images since it encoding requires
+that the entire image be buffered in memory. Huffman encoding produces smaller
+JPEG files at the expense of added compression time and memory consumption.
+jpeg:preserve-settingsIf the jpeg:preserve-settings flag is defined, the JPEG
+encoder will use the same "quality" and "sampling-factor" settings that were
+found in the input file, if the input was in JPEG format. These settings are
+also preserved if the input is a JPEG file and the output is a JNG file. If the
+colorspace of the output file differs from that of the input file, the quality
+setting is preserved but the sampling-factors are not.pcl:fit-to-pageIf the
+pcl:fit-to-page flag is defined, then the printer is requested to scale the
+image to fit the page size (width and/or height).mng:maximum-loops=<value>
+mng:maximum-loops specifies the maximum number of loops allowed to be specified
+by a MNG LOOP chunk. Without an imposed limit, a MNG file could request up to
+2147483647 loops, which could run for a very long time. The current default
+limit is 512 loops.pdf:use-cropbox={true|false}If the pdf:use-cropbox flag is
+set to true, then Ghostscript is requested to apply the PDF crop box.
+pdf:stop-on-error={true|false}If the pdf:stop-on-error flag is set to true, then
+Ghostscript is requested to stop processing the PDF when the first error is
+encountered. Otherwise it will attempt to process all requested pages.
+ps:imagemaskIf the ps:imagemask flag is defined, the PS3 and EPS3 coders will
+create Postscript files that render bilevel images with the Postscript imagemask
+operator instead of the image operator.ptif:minimum-geometry=<geometry>If the
+ptif:minimum-geometry key is defined, GraphicsMagick will use it to determine
+the minimum frame size to output when writing a pyramid TIFF file (a TIFF file
+containing a succession of reduced versions of the first frame). The default
+minimum geometry is 32x32.tiff:alpha={unspecified|associated|unassociated}
+Specify the TIFF alpha channel type when reading or writing TIFF files,
+overriding the normal value. The default alpha channel type for new files is
+unspecified alpha. Existing alpha settings are preserved when converting from
+one TIFF file to another. When a TIFF file uses associated alpha, the image
+pixels are pre-multiplied (i.e. altered) with the alpha channel. Files with
+"associated" alpha appear as if they were alpha composited on a black background
+when the matte channel is disabled. If the unassociated alpha type is selected,
+then the alpha channel is saved without altering the pixels. Photoshop
+recognizes associated alpha as transparency information, if the file is saved
+with unassociated alpha, the alpha information is loaded as an independent
+channel. Note that for many years, ImageMagick and GraphicsMagick marked TIFF
+files as using associated alpha, without properly pre-multiplying the pixels.
+tiff:fill-order={msb2lsb|lsb2msb}If the tiff:fill-order key is defined,
+GraphicsMagick will use it to determine the bit fill order used while writing
+TIFF files. The normal default is "msb2lsb", which matches the native bit order
+of all modern CPUs. The only exception to this is when Group3 or Group4 FAX
+compression is requested since FAX machines send data in bit-reversed order and
+therefore RFC 2301 recommends using reverse order.
+tiff:group-three-options=<value>If the tiff:group-three-options key is defined,
+GraphicsMagick will use it to set the group3 options tag when writing
+group3-compressed TIFF. Please see the TIFF specification for the usage of this
+tag. The default value is 4.tiff:ignore-tags=<tags>If the tiff:ignore-tags key
+is defined, then it is used as a list of comma-delimited integer TIFF tag values
+to ignore while reading the TIFF file. This is useful in order to be able to
+read files which which otherwise fail to read due to problems with TIFF tags.
+Note that some TIFF tags are required in order to be able to read the image data
+at all.tiff:report-warnings={false|true}If the tiff:report-warnings key is
+defined and set to true, then TIFF warnings are reported as a warning exception
+rather than as a coder log message. Such warnings are reported after the image
+has been read or written. Most TIFF warnings are benign but sometimes they may
+help deduce problems with the TIFF file, or help detect that the TIFF file
+requires a special application to read successfully due to the use of
+proprietary or specialized extensions.tiff:sample-format={unsigned|ieeefp}If the
+tiff:sample-format key is defined, GraphicsMagick will use it to determine the
+sample format used while writing TIFF files. The default is "unsigned". Specify
+"ieeefp" in order to write floating-point TIFF files with float (32-bit) or
+double (64-bit) values. Use the tiff:bits-per-sample define to determine the
+type of floating-point value to use.tiff:max-sample-value=<value>If the
+tiff:max-sample-value key is defined, GraphicsMagick will use the assigned value
+as the maximum floating point value while reading or writing IEEE floating point
+TIFFs. Otherwise the maximum value is 1.0 or the value obtained from the file's
+SMaxSampleValue tag (if present). The floating point data is currently not
+scanned in advance to determine a best maximum sample value so if the range is
+not 1.0, or the SMaxSampleValue tag is not present, it may be necessary to
+(intelligently) use this parameter to properly read a file.
+tiff:min-sample-value=<value>If the tiff:min-sample-value key is defined,
+GraphicsMagick will use the assigned value as the minimum floating point value
+while reading or writing IEEE floating point TIFFs. Otherwise the minimum value
+is 0.0 or the value obtained from the file's SMinSampleValue tag (if present).
+tiff:bits-per-sample=<value>If the tiff:bits-per-sample key is defined,
+GraphicsMagick will write images with the specified bits per sample, overriding
+any existing depth value. Value may be any in the range of 1 to 32, or 64 when
+the default 'unsigned' format is written, or 16/32/24/64 if IEEEFP format is
+written. Please note that the baseline TIFF 6.0 specification only requires
+readers to handle certain powers of two, and the values to be handled depend on
+the nature of the image (e.g. colormapped, grayscale, RGB, CMYK).
+tiff:samples-per-pixel=<value>If the tiff:samples-per-pixel key is defined to a
+value, the TIFF coder will write TIFF images with the defined samples per pixel,
+overriding any value stored in the image. This option should not normally be
+used.tiff:rows-per-strip=<value>Allows the user to specify the number of rows
+per TIFF strip. Rounded up to a multiple of 16 when using JPEG compression.
+Ignored when using tiles.tiff:strip-per-page=trueRequests that the image is
+written in a single TIFF strip. This is normally the default when group3 or
+group4 compression is requested within reasonable limits. Requesting a single
+strip for large images may result in failure due to resource consumption in the
+writer or reader.tiff:tileEnable writing tiled TIFF (rather than stripped) using
+the default tile size. Tiled TIFF organizes the image as an array of smaller
+images (tiles) in order to enable random access.
+tiff:tile-geometry=<width>x<height>Specify the tile size to use while writing
+tiled TIFF. Width and height should be a multiple of 16. If the value is not a
+multiple of 16, then it will be rounded down. Enables tiled TIFF if it has not
+already been enabled. GraphicsMagick does not use tiled storage internally so
+tiles need to be converted back and forth from the internal scanline-oriented
+storage to tile-oriented storage. Testing with typical RGB images shows that
+useful square tile size values range from 128x128 to 1024x1024. Large images
+which require using a disk-based pixel cache benefit from large tile sizes while
+images which fit in memory work well with smaller tile sizes.
+tiff:tile-width=<width>Specify the tile width to use while writing tiled TIFF.
+The tile height is then defaulted to an appropriate size. Width should be a
+multiple of 16. If the value is not a multiple of 16, then it will be rounded
+down. Enables tiled TIFF if it has not already been enabled.
+tiff:tile-height=<height>Specify the tile height to use while writing tiled
+TIFF. The tile width is then defaulted to an appropriate size. Height should be
+a multiple of 16. If the value is not a multiple of 16, then it will be rounded
+down. Enables tiled TIFF if it has not already been enabled.
+webp:lossless={true|false}Enable lossless encoding.webp:method={0-6}
+Quality/speed trade-off.webp:image-hint={default,graph,photo,picture}Hint for
+image type.webp:target-size=<integer>Target size in bytes.
+webp:target-psnr=<float>Minimal distortion to try to achieve.webp:segments={1-4}
+Maximum number of segments to use.webp:sns-strength={0-100}Spatial Noise
+Shaping.webp:filter-strength={0-100}Filter strength.webp:filter-sharpness={0-7}
+Filter sharpness.webp:filter-type={0,1}Filtering type. 0 = simple, 1 = strong
+(only used if filter-strength > 0 or autofilter is enabled).
+webp:auto-filter={true|false}Auto adjust filter's strength.
+webp:alpha-compression=<integer>Algorithm for encoding the alpha plane (0 =
+none, 1 = compressed with WebP lossless). Default is 1.
+webp:alpha-filtering=<integer>Predictive filtering method for alpha plane. 0:
+none, 1: fast, 2: best. Default is 1.webp:alpha-quality={0-100}Between 0
+(smallest size) and 100 (lossless). Default is 100.webp:pass=[1..10]Number of
+entropy-analysis passes.webp:show-compressed={true|false}Export the compressed
+picture back. In-loop filtering is not applied.webp:preprocessing=[0,1,2]0=none,
+1=segment-smooth, 2=pseudo-random ditheringwebp:partitions=[0-3]log2(number of
+token partitions) in [0..3]. Default is 0 for easier progressive decoding.
+webp:partition-limit={0-100}Quality degradation allowed to fit the 512k limit on
+prediction modes coding (0: no degradation, 100: maximum possible degradation).
+webp:emulate-jpeg-size={true|false}If true, compression parameters will be
+remapped to better match the expected output size from JPEG compression.
+Generally, the output size will be similar but the degradation will be lower.
+webp:thread-level=<integer>If non-zero, try and use multi-threaded encoding.
+webp:low-memory={true|false}If set, reduce memory usage (but increase CPU use)
+For example, to create a postscript file that will render only the black pixels
+of a bilevel image, use:
+
+gm convert bilevel.tif -define ps:imagemask eps3:stencil.ps
+
+
+

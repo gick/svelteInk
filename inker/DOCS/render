@@ -1,0 +1,4 @@
+-render
+render vector operations
+Use +render to turn off rendering vector operations. This is useful when saving
+the result to vector formats such as MVG or SVG.

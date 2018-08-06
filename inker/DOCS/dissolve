@@ -1,0 +1,4 @@
+-dissolve <percent>
+dissolve an image into another by the given percent
+The opacity of the composite image is multiplied by the given percent, then it
+is composited over the main image.

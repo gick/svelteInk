@@ -1,8 +1,8 @@
-<h1>Helddedddddddlo!</h1>
+<h1>!</h1>
 <ul>
-{#each $gmOperations as operation}
+{#each $gmMethods as operation}
 <li>
-	<GmOperation name={operation.name} args={operation.args}></GmOperation>
+<GmOperation name={operation.name} args={operation.args} doc={operation.doc}></GmOperation>
 </li>
 {/each}
 </ul>
@@ -13,14 +13,13 @@
 </style>
 <script>
 import GmOperation from './GmOperation.html'
-
 export default{
 
 oncreate() {
 	this.store.fetchGm()
 },
 components:{
-	GmOperation
+GmOperation
 },
 data() {
 	return {

@@ -1,0 +1,8 @@
+-append
+append a set of images
+This option creates a single image where the images in the original set are
+stacked top-to-bottom. If they are not of the same width, any narrow images will
+be expanded to fit using the background color. Use +append to stack images
+left-to-right. The set of images is terminated by the appearance of any option.
+If the -appendoption appears after all of the input images, all images are
+appended.

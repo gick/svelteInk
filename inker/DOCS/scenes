@@ -1,0 +1,18 @@
+-scenes <value-value>
+range of image scene numbers to read
+Each image in the range is read with the filename followed by a period (.) and
+the decimal scene number. You can change this behavior by embedding a %d, %0Nd,
+%o, %0No, %x, or %0Nx printf format specification in the file name. For example,
+
+
+gm montage -scenes 5-7 image.miff montage.miff
+
+
+
+makes a montage of files image.miff.5, image.miff.6, and image.miff.7, and
+
+gm animate -scenes 0-12 image%02d.miff
+
+
+
+animates files image00.miff, image01.miff, through image12.miff.

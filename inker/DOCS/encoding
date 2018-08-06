@@ -1,0 +1,4 @@
+-encoding <type>
+specify the text encoding
+Choose from AdobeCustom, AdobeExpert, AdobeStandard, AppleRoman, BIG5, GB2312,
+Latin 2, None, SJIScode, Symbol, Unicode, Wansung.

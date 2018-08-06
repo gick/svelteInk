@@ -1,0 +1,23 @@
+-ordered-dither <channeltype> <NxN>
+ordered dither the image
+The channel or channels specified in the channeltype argument are reduced to
+binary, using an ordered dither method. The choices forchanneltype are All,
+Intensity, Red,Green, Blue, Cyan, Magenta, Yellow,Black, and Opacity
+When channeltype is "All", the color samples are dithered into a gray level and
+then that gray level is stored in the three color channels. Separately, the
+opacity channel is dithered into a bilevel opacity value which is stored in the
+opacity channel.
+When channeltype is "Intensity", only the color samples are dithered. When
+channeltype is "opacity" or "matte", only the opacity channel is dithered. When
+a color channel is specified, only that channel is dithered.
+The choices for N are 2 through 7. The image is divided into NxN pixel tiles. In
+each tile, some or all pixels are turned to white depending on their intensity.
+For each N, (N**2)+1 levels of gray can be represented. For N == 2, 3, or 4, the
+pixels are turned to white in an order that maximizes dispersion (i.e., reduces
+granularity), while for N == 5, 6, and 7, they are turned to white in an order
+that creates a roughly circular black blob in the middle of each tile. An
+attractive "half-tone" looking image can be obtained by first rotating the image
+45 degrees, performing a 5x5 ordered-dither operation, then rotating it back to
+the original orientation and cropping to the original image dimensions. If the
+original image is gamma-encoded, it is adviseable to convert it to linear
+intensity first, e.g., with the "-gamma 0.45455" option.

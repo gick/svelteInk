@@ -1,0 +1,3 @@
+-transparent <color>
+make this color transparent within the image
+The color is specified using the format described under the -filloption.

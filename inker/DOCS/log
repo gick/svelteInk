@@ -1,0 +1,29 @@
+-log <string>
+Specify format for debug log
+This option specifies the format for the log printed when the -debugoption is
+active.
+You can display the following components by embedding special format characters:
+
+
+%d   domain
+%e   event
+%f   function
+%l   line
+%m   module
+%p   process ID
+%r   real CPU time
+%t   wall clock time
+%u   user CPU time
+%%   percent sign
+\n   newline
+\r   carriage return
+
+
+
+For example:
+
+gm convert -debug coders -log "%u %m:%l %e" in.gif out.png
+
+
+
+The default behavior is to print all of the components.

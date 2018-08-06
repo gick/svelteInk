@@ -1,0 +1,6 @@
+-morph <frames>
+morphs an image sequence
+Both the image pixels and size are linearly interpolated to give the appearance
+of a meta-morphosis from one image to the next.
+The sequence of images is terminated by the appearance of any option. If the
+-morphoption appears after all of the input images, all images are morphed.

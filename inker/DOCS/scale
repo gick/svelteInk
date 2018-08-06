@@ -1,0 +1,6 @@
+-scale <geometry>
+scale the image.
+See -geometry for details about the geometry specification. -scale uses a
+simpler, faster algorithm, and it ignores the -filter selection if the -filter
+option is present. Offsets, if present in the geometry string, are ignored, and
+the -gravity option has no effect.

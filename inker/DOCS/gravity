@@ -1,0 +1,17 @@
+-gravity <type>
+direction primitive gravitates to when annotating the image.
+Choices are: NorthWest, North, NorthEast, West, Center, East, SouthWest, South,
+SouthEast.
+The direction you choose specifies where to position the text when annotating
+the image. For example Center gravity forces the text to be centered within the
+image. By default, the image gravity is NorthWest. See -draw for more details
+about graphic primitives. Only the text primitive is affected by the -gravity
+option.
+The -gravity option is also used in concert with the -geometryoption and other
+options that take <geometry> as a parameter, such as the -crop option. See
+-geometry for details of how the-gravity option interacts with the<x> and <y>
+parameters of a geometry specification.
+When used as an option to composite, -gravitygives the direction that the image
+gravitates within the composite.
+When used as an option to montage, -gravity gives the direction that an image
+gravitates within a tile. The default gravity is Centerfor this purpose.

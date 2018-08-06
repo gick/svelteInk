@@ -1,0 +1,14 @@
+-chop <width>x<height>{+-}<x>{+-}<y>{%}
+remove pixels from the interior of an image
+Width and height give the number of columns and rows to remove, and x and y are
+offsets that give the location of the leftmost column and topmost row to remove.
+
+The x offset normally specifies the leftmost column to remove. If the -gravity
+option is present with NorthEast, East,or SouthEastgravity, it gives the
+distance leftward from the right edge of the image to the rightmost column to
+remove. Similarly, the y offset normally specifies the topmost row to remove,
+but if the -gravity option is present with SouthWest, South,or SouthEastgravity,
+it specifies the distance upward from the bottom edge of the image to the bottom
+row to remove.
+The -chop option removes entire rows and columns, and moves the remaining corner
+blocks leftward and upward to close the gaps.

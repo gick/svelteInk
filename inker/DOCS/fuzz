@@ -1,0 +1,10 @@
+-fuzz <distance>{%}
+colors within this Euclidean distance are considered equal
+A number of algorithms search for a target color. By default the color must be
+exact. Use this option to match colors that are close (in Euclidean distance) to
+the target color in RGB 3D space. For example, if you want to automatically trim
+the edges of an image with-trim but the image was scanned and the target
+background color may differ by a small amount. This option can account for these
+differences.
+The distance can be in absolute intensity units or, by appending"%", as a
+percentage of the maximum possible intensity (255, 65535, or 4294967295).

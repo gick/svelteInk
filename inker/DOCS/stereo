@@ -1,0 +1,5 @@
+-stereo
+composite two images to create a stereo anaglyph
+The left side of the stereo pair is saved as the red channel of the output
+image. The right side is saved as the green channel. Red-green stereo glasses
+are required to properly view the stereo image.

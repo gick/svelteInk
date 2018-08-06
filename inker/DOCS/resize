@@ -1,0 +1,10 @@
+-resize <width>x<height>{%}{@}{!}{<}{>}
+resize an image
+This is an alias for the -geometry option and it behaves in the same manner. If
+the -filter option precedes the -resizeoption, the specified filter is used.
+There are some exceptions:
+When used as a composite option, -resize conveys the preferred size of the
+output image, while -geometry conveys the size and placement of the composite
+image within the main image.
+When used as a montage option, -resize conveys the preferred size of the
+montage, while -geometry conveys information about the tiles.

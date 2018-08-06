@@ -1,0 +1,3 @@
+-gaussian <radius>{x<sigma>}
+blur the image with a Gaussian operator
+Use the given radius and standard deviation (sigma).

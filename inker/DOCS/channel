@@ -1,0 +1,6 @@
+-channel <type>
+the type of channel
+Choose from: Red, Green, Blue, Opacity,Matte, Cyan, Magenta, Yellow, Black, or
+Gray.
+Use this option to extract a particular channel from the image.Opacity, for
+example, is useful for extracting the opacity values from an image.

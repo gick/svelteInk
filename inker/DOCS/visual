@@ -1,0 +1,18 @@
+-visual <type>
+animate images using this X visual type
+Choose from these visual classes:
+
+StaticGray
+GrayScale
+StaticColor
+PseudoColor
+TrueColor
+DirectColor
+default
+visual id
+
+
+
+The X server must support the visual you choose, otherwise an error occurs. If a
+visual is not specified, the visual class that can display the most simultaneous
+colors on the default screen is chosen.

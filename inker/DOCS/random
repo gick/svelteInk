@@ -1,0 +1,14 @@
+-random-threshold <channeltype> <LOWxHIGH>
+random threshold the image
+The channel or channels specified in the <channeltype> argument are reduced to
+binary, using an random-threshold method. The choices forchanneltype are All,
+Intensity, Red,Green, Blue, Cyan, Magenta, Yellow,Black, and Opacity
+When channeltype is "All", the color samples are thresholded into a graylevel
+and then that gray level is stored in the three color channels. Separately, the
+opacity channel is thresholded into a bilevel opacity value which is stored in
+the opacity channel. For each pixel, a new random number is used to establish
+the threshold to be used. The threshold never exceeds the specified maximum
+(HIGH) and is never less than the specified minimum (LOW).
+When channeltype is "intensity", only the color samples are thresholded. When
+channeltype is "opacity" or "matte", only the opacity channel is thresholded.
+The other named channels only threshold the associated channel.

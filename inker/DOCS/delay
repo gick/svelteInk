@@ -1,0 +1,7 @@
+-delay <1/100ths of a second>
+display the next image after pausing
+This option is useful for regulating the animation of image sequencesDelay/100
+seconds must expire before the display of the next image. The default is no
+delay between each showing of the image sequence. The maximum delay is 65535.
+You can specify a delay range (e.g. -delay 10-500) which sets the minimum and
+maximum delay.

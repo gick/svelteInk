@@ -1,0 +1,11 @@
+-sampling-factor
+<horizontal_factor>x<vertical_factor>
+chroma subsampling factors
+This option specifies the sampling factors to be used by the DPX, JPEG, MPEG, or
+YUV encoders for chroma downsampling. The sampling factor must be specified
+while reading the raw YUV format since it is not preserved in the file header.
+Industry-standard video subsampling notation such as "4:2:2" may also be used to
+specify the sampling factors. "4:2:2" is equivalent to a specification of "2x1"
+The JPEG decoder obtains the original sampling factors (and quality settings)
+when a JPEG file is read. To re-use the original sampling factors (and quality
+setting) when JPEG is output, use the -define jpeg:preserve-settings flag.

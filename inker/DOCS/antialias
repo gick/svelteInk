@@ -1,0 +1,6 @@
+-antialias
+remove pixel aliasing
+By default antialiasing algorithms are used when drawing objects (e.g. lines) or
+rendering vector formats (e.g. WMF and Postscript). Use +antialias to disable
+use of antialiasing algorithms. Reasons to disable antialiasing include avoiding
+increasing colors in the image, or improving rendering speed.

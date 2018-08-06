@@ -1,0 +1,3 @@
+-border <width>x<height>
+surround the image with a border of color
+See -geometry for details about the geometry specification.

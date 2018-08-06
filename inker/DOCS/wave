@@ -1,0 +1,3 @@
+-wave <amplitude>x<wavelength>
+alter an image along a sine wave
+Specify amplitude and wavelengthof the wave.

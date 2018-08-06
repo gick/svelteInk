@@ -1,0 +1,3 @@
+-cycle <amount>
+displace image colormap by amount
+Amount defines the number of positions each colormap entry isshifted.

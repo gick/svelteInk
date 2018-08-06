@@ -1,0 +1,13 @@
+-verbose
+print detailed information about the image
+This information is printed: image scene number; image name; image size; the
+image class (DirectClass or PseudoClass); the total number of unique colors; and
+the number of seconds to read and transform the image. If the image is
+DirectClass, the total number of unique colors is not displayed unless -verbose
+is specified twice since it may take quite a long time to compute, particularly
+for deep images. If the image is PseudoClass then its pixels are defined by
+indexes into a colormap. If the image is DirectClass then each pixel includes a
+complete and independent color specification.
+If -colors is also specified, the total unique colors in the image and color
+reduction error values are printed. Refer to quantize [quantize.html]for a
+description of these values.

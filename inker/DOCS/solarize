@@ -1,0 +1,5 @@
+-solarize <factor>
+negate all pixels above the threshold level
+Specify factor as the percent threshold of the intensity (0 - 99.9%).
+This option produces a solarization effect seen when exposing a photographic
+film to light during the development process.

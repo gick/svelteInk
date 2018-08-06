@@ -1,0 +1,3 @@
+-swirl <degrees>
+swirl image pixels about the center
+Degrees defines the tightness of the swirl.

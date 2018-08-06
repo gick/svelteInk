@@ -1,0 +1,6 @@
+-roll {+-}<x>{+-}<y>
+roll an image vertically or horizontally
+See -geometry for details the geometry specification. Thex and y offsets are not
+affected by the -gravityoption.
+A negative x offset rolls the image left-to-right. A negativey offset rolls the
+image top-to-bottom.

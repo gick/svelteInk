@@ -1,0 +1,12 @@
+-compress <type>
+the type of image compression
+Choices are: None, BZip, Fax,Group4,JPEG, Lossless,LZW, RLE, Zip, or LZMA.
+Specify +compress to store the binary image in an uncompressed format. The
+default is the compression type of the specified image file.
+"Lossless" refers to lossless JPEG, which is only available if the JPEG library
+has been patched to support it. Use of lossless JPEG is generally not
+recommended.
+Use the -quality option to set the compression level to be used by JPEG, PNG,
+MIFF, and MPEG encoders. Use the -sampling-factoroption to set the sampling
+factor to be used by the DPX, JPEG, MPEG, and YUV encoders for downsampling the
+chroma channels.

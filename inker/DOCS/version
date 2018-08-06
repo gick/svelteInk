@@ -1,0 +1,2 @@
+-version
+print GraphicsMagick version string

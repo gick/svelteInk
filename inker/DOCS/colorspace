@@ -1,0 +1,24 @@
+-colorspace <value>
+the type of colorspace
+Choices are:CineonLog, CMYK, GRAY, HSL, HWB,OHTA, RGB, Rec601Luma, Rec709Luma,
+Rec601YCbCr, Rec709YCbCr, Transparent, XYZ,YCbCr, YIQ, YPbPr, or YUV.
+Color reduction, by default, takes place in the RGB color space. Empirical
+evidence suggests that distances in color spaces such as YUV or YIQ correspond
+to perceptual color differences more closely than do distances in RGB space.
+These color spaces may give better results when color reducing an image. Refer
+to quantize [quantize.html] for more details.
+Two gray colorspaces are supported. The Rec601Luma space is based on the
+recommendations for legacy NTSC television (ITU-R BT.601-5). The Rec709Luma
+space is based on the recommendations for HDTV (Rec. ITU-R BT.709-5) and is
+suitable for use with computer graphics, and for contemporary CRT displays. The
+GRAY colorspace currently selects the Rec601Lumacolorspace by default for
+backwards compatibly reasons. This default may be re-considered in the future.
+Two YCbCr colorspaces are supported. The Rec601YCbCr space is based on the
+recommendations for legacy NTSC television (ITU-R BT.601-5). TheRec709CbCr space
+is based on the recommendations for HDTV (Rec. ITU-R BT.709-5) and is suitable
+for suitable for use with computer graphics, and for contemporary CRT displays.
+The YCbCr colorspace specification is equivalent toRec601YCbCr.
+The Transparent color space behaves uniquely in that it preserves the matte
+channel of the image if it exists.
+The -colors or -monochrome option, or saving to a file format which requires
+color reduction, is required for this option to take effect.

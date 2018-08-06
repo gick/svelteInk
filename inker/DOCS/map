@@ -1,0 +1,18 @@
+-map <type>
+display image using this type.
+[animate or display]
+Choose from these Standard Colormap types:
+
+best
+default
+gray
+red
+green
+blue
+
+
+
+The X server must support the Standard Colormap you choose, otherwise an error
+occurs. Use list as the type and displaysearches the list of colormap types in
+top-to-bottom order until one is located. See xstdcmap(1) for one way of
+creating Standard Colormaps.

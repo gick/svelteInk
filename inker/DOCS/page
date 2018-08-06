@@ -1,0 +1,69 @@
+-page <width>x<height>{+-}<x>{+-}<y>{%}{!}{
+<}{>}
+size and location of an image canvas
+Use this option to specify the dimensions of thePostScript page in dots per inch
+or a TEXT page in pixels. The choices for a PostScript page are:
+
+11x17         792  1224
+Ledger       1224   792
+Legal         612  1008
+Letter        612   792
+LetterSmall   612   792
+ArchE        2592  3456
+ArchD        1728  2592
+ArchC        1296  1728
+ArchB         864  1296
+ArchA         648   864
+A0           2380  3368
+A1           1684  2380
+A2           1190  1684
+A3            842  1190
+A4            595   842
+A4Small       595   842
+A5            421   595
+A6            297   421
+A7            210   297
+A8            148   210
+A9            105   148
+A10            74   105
+B0           2836  4008
+B1           2004  2836
+B2           1418  2004
+B3           1002  1418
+B4            709  1002
+B5            501   709
+C0           2600  3677
+C1           1837  2600
+C2           1298  1837
+C3            918  1298
+C4            649   918
+C5            459   649
+C6            323   459
+Flsa          612   936
+Flse          612   936
+HalfLetter    396   612
+
+
+
+For convenience you can specify the page size by media (e.g. A4, Ledger, etc.).
+Otherwise, -page behaves much like-geometry (e.g. -page letter+43+43>).
+This option is also used to place subimages when writing to a multi-image format
+that supports offsets, such as GIF89 and MNG. When used for this purpose the
+offsets are always measured from the top left corner of the canvas and are not
+affected by the -gravityoption. To position a GIF or MNG image, use -page
+{+-}<x>{+-}<y>(e.g. -page +100+200). When writing to a MNG file, a -pageoption
+appearing ahead of the first image in the sequence with nonzero width and height
+defines the width and height values that are written in the MHDR chunk.
+Otherwise, the MNG width and height are computed from the bounding box that
+contains all images in the sequence. When writing a GIF89 file, only the
+bounding box method is used to determine its dimensions.
+For a PostScript page, the image is sized as in -geometry and positioned
+relative to the lower left hand corner of the page by {+-}<xoffset>{+-}<yoffset>
+. Use-page 612x792>, for example, to center the image within the page. If the
+image size exceeds the PostScript page, it is reduced to fit the page. The
+default gravity for the -pageoption is NorthWest, i.e., positive x andy offset
+are measured rightward and downward from the top left corner of the page, unless
+the -gravity option is present with a value other than NorthWest.
+The default page dimensions for a TEXT image is 612x792.
+This option is used in concert with -density.
+Use +page to remove the page settings for an image.

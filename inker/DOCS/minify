@@ -1,0 +1,3 @@
+-minify <factor>
+minify the image
+The image size is halved using linear interpolation.

@@ -1,0 +1,3 @@
+-region <width>x<height>{+-}<x>{+-}<y>
+apply options to a portion of the image
+The x and y offsets are treated in the same manner as in -crop.

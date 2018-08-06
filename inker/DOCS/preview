@@ -1,0 +1,38 @@
+-preview <type>
+image preview type
+Use this option to affect the preview operation of an image (e.g.convert
+file.png -preview Gamma Preview:gamma.png). Choose from these previews:
+
+Rotate
+Shear
+Roll
+Hue
+Saturation
+Brightness
+Gamma
+Spiff
+Dull
+Grayscale
+Quantize
+Despeckle
+ReduceNoise
+AddNoise
+Sharpen
+Blur
+Threshold
+EdgeDetect
+Spread
+Shade
+Raise
+Segment
+Solarize
+Swirl
+Implode
+Wave
+OilPaint
+CharcoalDrawing
+JPEG
+
+
+
+The default preview is JPEG.

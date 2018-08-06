@@ -1,0 +1,2 @@
+-metric <metric>
+comparison metric (MAE, MSE, PAE, PSNR, RMSE)

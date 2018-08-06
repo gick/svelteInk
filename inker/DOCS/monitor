@@ -1,0 +1,6 @@
+-monitor
+show progress indication
+A simple command-line progress indication is shown while the command is running.
+The process indication shows the operation currently being performed and the
+percent completed. Commands using X11 may replace the command line progress
+indication with a graphical one once an image has been displayed.

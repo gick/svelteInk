@@ -1,0 +1,22 @@
+-comment <string>
+annotate an image with a comment
+Use this option to assign a specific comment to the image, when writing to an
+image format that supports comments. You can include the image filename, type,
+width, height, or other image attribute by embedding special format characters
+listed under the -format option. The comment is not drawn on the image, but is
+embedded in the image datastream via a "Comment" tag or similar mechanism. If
+you want the comment to be visible on the image itself, use the -draw option
+instead.
+For example,
+
+-comment "%m:%f %wx%h"
+
+
+
+produces an image comment of MIFF:bird.miff 512x480 for an image titled
+bird.miff and whose width is 512 and height is 480.
+If the first character of string is @, the image comment is read from a file
+titled by the remaining characters in the string.
+If the -comment option appears multiple times, only the last comment is stored.
+In PNG images, the comment is stored in a tEXt or zTXt chunk with the keyword
+"comment".

@@ -1,0 +1,5 @@
+-auto-orient
+orient (rotate) image so it is upright
+Adjusts the image orienation so that it is suitable for viewing. Uses the
+orientation tag obtained from the image file or as supplied by the-orient
+option.

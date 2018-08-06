@@ -1,0 +1,6 @@
+-intent <type>
+use this type of rendering intent when managing the image color
+Use this option to affect the the color management operation of an image (see
+-profile). Choose from these intents:Absolute, Perceptual, Relative, Saturation.
+
+The default intent is undefined.

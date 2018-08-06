@@ -1,0 +1,2 @@
+-median <radius>
+apply a median filter to the image

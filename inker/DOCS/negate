@@ -1,0 +1,5 @@
+-negate
+replace every pixel with its complementary color
+The red, green, and blue intensities of an image are negated. White becomes
+black, yellow becomes blue, etc. Use +negateto only negate the grayscale pixels
+of the image.

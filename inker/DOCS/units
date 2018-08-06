@@ -1,0 +1,4 @@
+-units <type>
+the units of image resolution
+Choose from: Undefined, PixelsPerInch, orPixelsPerCentimeter. This option is
+normally used in conjunction with the -density option.

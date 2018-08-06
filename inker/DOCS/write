@@ -1,0 +1,18 @@
+-write <filename>
+write the image to a file [display]
+If filename already exists, you will be prompted as to whether it should be
+overwritten.
+By default, the image is written in the format that it was read in as. To
+specify a particular image format, prefix filename with the image type and a
+colon (e.g., ps:image) or specify the image type as the filename suffix (e.g.,
+image.ps). Specify file as - for standard output. If file has the extension .Z
+or .gz, the file size is compressed using compress or gziprespectively. Precede
+the image file name with | to pipe to a system command.
+Use -compress to specify the type of image compression.
+The equivalent X resource for this option iswriteFilename (class WriteFilename).
+SeeX Resourcesfor details.
+
+Back to Contents
+
+> [images/right_triangle.png]Environment
+

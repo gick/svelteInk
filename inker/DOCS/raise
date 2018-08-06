@@ -1,0 +1,5 @@
+-raise <width>x<height>
+lighten or darken image edges
+This will create a 3-D effect. See -geometry for details details about the
+geometry specification. Offsets are not used.
+Use -raise to create a raised effect, otherwise use +raise.

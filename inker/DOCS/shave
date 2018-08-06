@@ -1,0 +1,4 @@
+-shave <width>x<height>{%}
+shave pixels from the image edges
+Specify the width of the region to be removed from both sides of the image and
+the height of the regions to be removed from top and bottom.

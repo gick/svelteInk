@@ -1,0 +1,4 @@
+-iconGeometry <geometry>
+specify the icon geometry
+Offsets, if present in the geometry specification, are handled in the same
+manner as the -geometry option, using X11 style to handle negative offsets.

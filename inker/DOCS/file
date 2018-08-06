@@ -1,0 +1,8 @@
+-file <filename>
+write annotated difference image to file
+If -file is specified, then an annotated difference image is generated and
+written to the specified file. Pixels which differ between the reference and
+compare images are modified from those in the compare image so that the changed
+pixels become more obvious. Some images may require use of an alternative
+highlight style (see-highlight-style) or highlight color (see -highlight-color)
+before the changes are obvious.

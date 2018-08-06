@@ -1,0 +1,8 @@
+-process <command>
+process a sequence of images using a process module
+The command argument has the form module=arg1,arg2,arg3,...,argNwhere module is
+the name of the module to invoke (e.g. "analyze") and arg1,arg2,arg3,...,argN
+are an arbitrary number of arguments to pass to the process module.
+The sequence of images is terminated by the appearance of any option.
+If the -processoption appears after all of the input images, all images are
+processed.

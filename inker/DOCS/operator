@@ -1,0 +1,85 @@
+-operator channel operator rvalue[%]
+apply a mathematical, bitwise, or value operator to an image channel
+Apply a low-level mathematical, bitwise, or value operator to a selected image
+channel or all image channels. Operations which result in negative results are
+reset to zero, and operations which overflow the available range are reset to
+the maximum possible value.
+Select a channel from: Red, Green, Blue,Opacity, Matte, Cyan, Magenta, Yellow,
+Black, All, or Gray. All only modifies the color channels and does not modify
+the Opacity channel. Except for the threshold operators, All operates on each
+channel independently so that operations are on a per-channel basis.
+Gray treats the color channels as a grayscale intensity and performs the
+requested operation on the equivalent pixel intensity so the result is a gray
+image.
+Select an operator from Add, And, Assign,Depth, Divide, Gamma, Negate,LShift,
+Log, Max, Min, Multiply,Or, Pow RShift, Subtract,Threshold, Threshold-White,
+Threshold-White-Negate, Threshold-Black,Threshold-Black-Negate, Xor,
+Noise-Gaussian,Noise-Impulse, Noise-Laplacian,Noise-Multiplicative,
+Noise-Poisson,Noise-Random, and Noise-Uniform.
+Rvalue may be any floating point or integer value. Normally rvalue will be in
+the range of 0 to MaxRGB, where MaxRGB is the largest quantum value supported by
+the GraphicsMagick build (255, 65535, or 4294967295) but values outside this
+range are useful for some arithmetic operations. Arguments to logical or
+bit-wise operations are rounded to a positive integral value prior to use. If a
+percent (%) symbol is appended to the argument, then the argument has a range of
+0 to 100 percent.
+The following is a description of the operators:
+AddResult is rvalue added to channel value.AndResult is the logical AND of
+rvalue with channel value.AssignResult is rvalue.DepthResult is channel value
+adjusted so that it may be (approximately) stored in the specified number of
+bits without additional loss.DivideResult is channel value divided by rvalue.
+GammaResult is channel value gamma adjusted by rvalue.LShiftResult is channel
+value bitwise left shifted by rvalue bits.LogResult is computed as
+log(value*rvalue+1)/log(rvalue+1).MaxResult is assigned to rvalue if rvalue is
+greater than value.MinResult is assigned to rvalue if rvalue is less than value.
+MultiplyResult is channel value multiplied by rvalue.NegateResult is inverse of
+channel value (like a film negative). An rvalue must be supplied but is
+currently not used. Inverting the image twice results in the original image.Or
+Result is the logical OR of rvalue with channel value.PowResult is computed as
+pow(value,rvalue). Similar to Gamma except that rvalue is not inverted.RShift
+Result is channel value bitwise right shifted by rvalue bits.SubtractResult is
+channel value minus rvalue.ThresholdResult is maximum (white) if channel value
+is greater than rvalue, or minimum (black) if it is less than or equal to
+rvalue. If allchannels are specified, then thresholding is done based on
+computed pixel intensity.Threshold-whiteResult is maximum (white) if channel
+value is greater than rvalue and is unchanged if it is less than or equal to
+rvalue. This can be used to remove apparent noise from the bright parts of an
+image. If allchannels are specified, then thresholding is done based on computed
+pixel intensity.Threshold-White-NegateResult is set to black if channel value is
+greater than rvalue and is unchanged if it is less than or equal to rvalue. If
+all channels are specified, then thresholding is done based on computed pixel
+intensity.Threshold-blackResult is minimum (black) if channel value is less than
+than rvalue and is unchanged if it is greater than or equal to rvalue. This can
+be used to remove apparent noise from the dark parts of an image. Ifall channels
+are specified, then thresholding is done based on computed pixel intensity.
+Threshold-Black-NegateResult is set to white if channel value is less than than
+rvalue and is unchanged if it is greater than or equal to rvalue. Ifall channels
+are specified, then thresholding is done based on computed pixel intensity.Xor
+Result is the logical XOR of rvalue with channel value. An interesting property
+of XOR is that performing the same operation twice results in the original
+value.Noise-GaussianResult is the current channel value modulated with gaussian
+noise according to the intensity specified by rvalue.Noise-ImpulseResult is the
+current channel value modulated with impulse noise according to the intensity
+specified by rvalue.Noise-LaplacianResult is the current channel value modulated
+with laplacian noise according to the intensity specified by rvalue.
+Noise-MultiplicativeResult is the current channel value modulated with
+multiplicative gaussian noise according to the intensity specified by rvalue.
+Noise-PoissonResult is the current channel value modulated with poisson noise
+according to the intensity specified by rvalue.Noise-RandomResult is the current
+channel value modulated with random (uniform distribution) noise according to
+the intensity specified by rvalue. The initial noise intensity (rvalue=1.0) is
+the range of one pixel quantum span.Noise-UniformResult is the channel value
+with uniform noise applied according to the intensity specified by rvalue.
+As an example, the Assign operator assigns a fixed value to a channel. For
+example, this command sets the red channel to the mid-range value:
+
+gm convert in.bmp -operator red assign "50%" out.bmp
+
+
+
+The following applies 50% thresholding to the image and returns a gray image:
+
+gm convert in.bmp -operator gray threshold "50%" out.bmp
+
+
+

@@ -1,0 +1,4 @@
+-preserve-timestamp
+preserve the original timestamps of the file
+Use this option to preserve the original modification and access timestamps of
+the file, even if it has been modified.

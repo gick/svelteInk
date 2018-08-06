@@ -1,0 +1,12 @@
+-clip
+apply the clipping path, if one is present
+If a clipping path is present, it will be applied to subsequent operations.
+For example, if you type the following command:
+
+gm convert -clip -negate cockatoo.tif negated.tif
+
+
+
+only the pixels within the clipping path are negated.
+The -clip feature requires the XML library. If the XML library is not present,
+the option is ignored.

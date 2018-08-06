@@ -1,0 +1,15 @@
+-threshold <value>{%}
+threshold the image
+Modify the image such that any pixel sample with an intensity value greater than
+the threshold is assigned the maximum intensity (white), or otherwise is
+assigned the minimum intensity (black). If a percent prefix is applied, then the
+threshold is a percentage of the available range.
+To efficiently create a black and white image from a color image, use
+
+gm convert -threshold 50% in.png out.png
+
+
+
+The optimum threshold value depends on the nature of the image.
+In order to threshold individual channels, use the -operatorsubcommand with it's
+Threshold, Threshold-White, orThreshold-Black options.

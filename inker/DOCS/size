@@ -1,0 +1,18 @@
+-size <width>x<height>{+offset}
+width and height of the image
+Use this option to specify the width and height of raw images whose dimensions
+are unknown such as GRAY, RGB, orCMYK. In addition to width and height, use
+-size with an offset to skip any header information in the image or tell the
+number of colors in a MAP image file, (e.g. -size 640x512+256).
+For Photo CD images, choose from these sizes:
+
+192x128
+384x256
+768x512
+1536x1024
+3072x2048
+
+
+
+Finally, use this option to choose a particular resolution layer of a JBIG or
+JPEG image (e.g. -size 1024x768).

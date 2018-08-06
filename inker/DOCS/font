@@ -1,0 +1,5 @@
+-font <name>
+use this font when annotating the image with text
+You can tag a font to specify whether it is a PostScript, TrueType, or X11 font.
+For example, Arial.ttf is a TrueType font, ps:helveticais PostScript, and
+x:fixed is X11.

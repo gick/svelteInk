@@ -1,0 +1,4 @@
+-scene <value>
+set scene number
+This option sets the scene number of an image or the first image in an image
+sequence.

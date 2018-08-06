@@ -1,0 +1,4 @@
+-loop <iterations>
+add Netscape loop extension to your GIF animation
+A value other than zero forces the animation to repeat itself up toiterations
+times.

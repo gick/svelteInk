@@ -1,0 +1,3 @@
+-sharpen <radius>{x<sigma>}
+sharpen the image
+Use a Gaussian operator of the given radius and standard deviation (sigma).

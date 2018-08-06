@@ -1,0 +1,14 @@
+-adjoin
+join images into a single multi-image file
+By default, all images of an image sequence are stored in the same file.
+However, some formats (e.g. JPEG) do not support storing more than one image per
+file and only the first frame in an image sequence will be saved unless the
+result is saved to separate files. Use+adjoin to force saving multiple frames to
+multiple numbered files. If +adjoin is used, then the output filename must
+include a printf style formatting specification for the numeric part of the
+filename. For example,
+
+image%02d.miff
+
+
+

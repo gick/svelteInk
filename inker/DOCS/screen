@@ -1,0 +1,7 @@
+-screen
+specify the screen to capture
+This option indicates that the GetImage request used to obtain the image should
+be done on the root window, rather than directly on the specified window. In
+this way, you can obtain pieces of other windows that overlap the specified
+window, and more importantly, you can capture menus or other popups that are
+independent windows but appear over the specified window.

@@ -1,0 +1,8 @@
+-highlight-style <style>
+pixel annotation style
+Specifies the pixel difference annotation style used to draw attention to
+changed pixels. May be one of Assign, Threshold,Tint, or XOR; where Assign
+replaces the pixel with the highlight color (see -highlight-color), Threshold
+replaces the pixel with black or white based on the difference in intensity,
+Tint alpha tints the pixel with the highlight color, and XOR does an XOR between
+the pixel and the highlight color.

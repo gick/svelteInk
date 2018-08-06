@@ -1,0 +1,5 @@
+-authenticate <string>
+decrypt image with this password
+Use this option to supply a password for decrypting an image or an image
+sequence, if it is being read from a format such as PDF that supports
+encryption. Encrypting images being written is not supported.

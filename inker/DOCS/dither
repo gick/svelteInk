@@ -1,0 +1,10 @@
+-dither
+apply Floyd/Steinberg error diffusion to the image
+The basic strategy of dithering is to trade intensity resolution for spatial
+resolution by averaging the intensities of several neighboring pixels. Images
+which suffer from severe contouring when reducing colors can be improved with
+this option.
+The -colors or -monochrome option is required for this option to take effect.
+Use +dither to turn off dithering and to render PostScript without text or
+graphic aliasing. Disabling dithering often (but not always) leads to decreased
+processing time.

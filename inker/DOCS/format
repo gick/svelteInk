@@ -1,0 +1,197 @@
+-format <string>
+output formatted image characteristics
+When used with the identify utility, or the convertutility with output written
+to the 'info:-' file specification, use this option to print information about
+the image in a format of your choosing. You can include the image filename,
+type, width, height, Exif data, or other image attributes by embedding special
+format characters:
+
+%b   file size
+%c   comment
+%d   directory
+%e   filename extension
+%f   filename
+%g   page dimensions and offsets
+%h   height
+%i   input filename
+%k   number of unique colors
+%l   label
+%m   magick
+%n   number of scenes
+%o   output filename
+%p   page number
+%q   image bit depth
+%r   image type description
+%s   scene number
+%t   top of filename
+%u   unique temporary filename
+%w   width
+%x   horizontal resolution
+%y   vertical resolution
+%A   transparency supported
+%C   compression type
+%D   GIF disposal method
+%G   Original width and height
+%H   page height
+%M   original filename specification
+%O   page offset (x,y)
+%P   page dimensions (width,height)
+%Q   compression quality
+%T   time delay (in centi-seconds)
+%U   resolution units
+%W   page width
+%X   page horizontal offset (x)
+%Y   page vertical offset (y)
+%@   trim bounding box
+%#   signature
+\n   newline
+\r   carriage return
+%%   %
+
+
+
+For example,
+
+-format "%m:%f %wx%h"
+
+
+
+displays MIFF:bird.miff 512x480 for an image titled bird.miff and whose width is
+512 and height is 480.
+If the first character of string is @, the format is read from a file titled by
+the remaining characters in the string.
+The values of image type (%p) which may be returned include:
+
+Bilevel
+Grayscale
+GrayscaleMatte
+Palette
+PaletteMatte
+TrueColor
+TrueColorMatte
+ColorSeparation
+ColorSeparationMatte
+Optimize
+
+
+
+You can also use the following special formatting syntax to print Exif
+information contained in the file:
+
+%[EXIF:<tag>]
+
+
+
+Where "<tag>" may be one of the following:
+
+*  (print all Exif tags, in keyword=data format)
+!  (print all Exif tags, in tag_number format)
+#hhhh (print data for Exif tag #hhhh)
+ImageWidth
+ImageLength
+BitsPerSample
+Compression
+PhotometricInterpretation
+FillOrder
+DocumentName
+ImageDescription
+Make
+Model
+StripOffsets
+Orientation
+SamplesPerPixel
+RowsPerStrip
+StripByteCounts
+XResolution
+YResolution
+PlanarConfiguration
+ResolutionUnit
+TransferFunction
+Software
+DateTime
+Artist
+WhitePoint
+PrimaryChromaticities
+TransferRange
+JPEGProc
+JPEGInterchangeFormat
+JPEGInterchangeFormatLength
+YCbCrCoefficients
+YCbCrSubSampling
+YCbCrPositioning
+ReferenceBlackWhite
+CFARepeatPatternDim
+CFAPattern
+BatteryLevel
+Copyright
+ExposureTime
+FNumber
+IPTC/NAA
+ExifOffset
+InterColorProfile
+ExposureProgram
+SpectralSensitivity
+GPSInfo
+ISOSpeedRatings
+OECF
+ExifVersion
+DateTimeOriginal
+DateTimeDigitized
+ComponentsConfiguration
+CompressedBitsPerPixel
+ShutterSpeedValue
+ApertureValue
+BrightnessValue
+ExposureBiasValue
+MaxApertureValue
+SubjectDistance
+MeteringMode
+LightSource
+Flash
+FocalLength
+MakerNote
+UserComment
+SubSecTime
+SubSecTimeOriginal
+SubSecTimeDigitized
+FlashPixVersion
+ColorSpace
+ExifImageWidth
+ExifImageLength
+InteroperabilityOffset
+FlashEnergy
+SpatialFrequencyResponse
+FocalPlaneXResolution
+FocalPlaneYResolution
+FocalPlaneResolutionUnit
+SubjectLocation
+ExposureIndex
+SensingMethod
+FileSource
+SceneType
+
+
+
+JPEG specific information (from reading a JPEG file) may be obtained like this:
+
+%[JPEG-<tag>]
+
+
+
+Where "<tag>" may be one of the following:
+
+*                 (all JPEG-related tags, in
+keyword=data format)
+Quality           IJG JPEG "quality" estimate
+Colorspace        JPEG colorspace numeric ID
+Colorspace-Name   JPEG colorspace name
+Sampling-factors  JPEG sampling factors
+
+
+
+Please note that JPEG has no notion of "quality" and that the quality metric
+used by, and estimated by the software is based on the quality metric
+established by IJG JPEG 6b. Other encoders (e.g. that used by Adobe Photoshop)
+use different encoding metrics.
+Surround the format specification with quotation marks to prevent your shell
+from misinterpreting any spaces and square brackets.

@@ -1,0 +1,5 @@
+-trim
+trim an image
+This option removes any edges that are exactly the same color as the corner
+pixels. Use -fuzz to make -trim remove edges that are nearly the same color as
+the corner pixels.

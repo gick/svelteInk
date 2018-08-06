@@ -1,0 +1,11 @@
+-interlace <type>
+the type of interlacing scheme
+Choices are: None, Line, Plane,or Partition. The default is None.
+This option is used to specify the type of interlacing scheme for raw image
+formats such as RGB or YUV.
+None means do not interlace (RGBRGBRGBRGBRGBRGB...),
+Line uses scanline interlacing (RRR...GGG...BBB...RRR...GGG...BBB...), and
+Plane uses plane interlacing (RRRRRR...GGGGGG...BBBBBB...).
+Partitionis like plane except the different planes are saved to individual files
+(e.g. image.R, image.G, and image.B).
+Use Line to create an interlaced PNG or GIF orprogressive JPEG image.

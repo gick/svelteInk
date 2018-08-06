@@ -1,0 +1,6 @@
+-backdrop
+display the image centered on a backdrop.
+This backdrop covers the entire workstation screen and is useful for hiding
+other X window activity while viewing the image. The color of the backdrop is
+specified as the foreground color (X11 default is black).
+Refer toX Resourcesfor details.

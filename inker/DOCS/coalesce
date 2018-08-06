@@ -1,0 +1,6 @@
+-coalesce
+merge a sequence of images
+Each image N in the sequence after Image 0 is replaced with the image created by
+flattening images 0 through N.
+The set of images is terminated by the appearance of any option. If the
+-coalesceoption appears after all of the input images, all images are coalesced.

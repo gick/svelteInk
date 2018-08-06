@@ -1,0 +1,5 @@
+-sample <geometry>
+scale image using pixel sampling
+See -geometry for details about the geometry specification.-sample ignores the
+-filter selection if the -filter option is present. Offsets, if present in the
+geometry string, are ignored, and the -gravity option has no effect.

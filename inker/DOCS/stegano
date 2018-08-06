@@ -1,0 +1,6 @@
+-stegano <offset>
+hide watermark within an image
+Use an offset to start the image hiding some number of pixels from the beginning
+of the image. Note this offset and the image size. You will need this
+information to recover the steganographic image (e.g. display -size 320x256+35
+stegano:image.png).

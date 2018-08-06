@@ -1,0 +1,6 @@
+-mode <value>
+mode of operation
+The available montage modes are frame to place the images in a rectangular grid
+while adding a decorative frame with dropshadow,unframe to place undecorated
+images in a rectangular grid, andconcatenate to pack the images closely together
+without any well-defined grid or decoration.

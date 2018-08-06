@@ -1,0 +1,7 @@
+-endian <type>
+specify endianness (MSB, LSB, or Native) of image
+MSB indicates big-endian (e.g. SPARC, Motorola 68K) whileLSB indicates
+little-endian (e.g. Intel 'x86, VAX) byte ordering. Native indicates to use the
+normal ordering for the current CPU. This option currently only influences the
+CMYK, DPX, GRAY, RGB, and TIFF, formats.
+Use +endian to revert to unspecified endianness.

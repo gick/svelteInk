@@ -1,0 +1,8 @@
+-transform
+transform the image
+This option applies the transformation matrix from a previous-affine option.
+
+gm convert -affine 2,2,-2,2,0,0 -transform bird.ppm bird.jpg
+
+
+

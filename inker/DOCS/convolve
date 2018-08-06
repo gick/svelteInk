@@ -1,0 +1,6 @@
+-convolve <kernel>
+convolve image with the specified convolution kernel
+The kernel is specified as a comma-separated list of floating point values,
+ordered left-to right, starting with the top row. The order of the kernel is
+determined by the square root of the number of entries. Presently only square
+kernels are supported.

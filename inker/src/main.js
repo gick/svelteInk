@@ -2,7 +2,7 @@ import App from './App.html';
 import InkerStore from './inkerStore'
 
 const store = new InkerStore({
-	gmOperations:[]
+	gmMethods:[]
 })
 
 const app = new App({

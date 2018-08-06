@@ -1,0 +1,9 @@
+-remote
+perform a X11 remote operation
+The -remote command sends a command to a "gm display" or "gm animate" which is
+already running. The only command recognized at this time is the name of an
+image file to load. This capability is very useful to load new images without
+needing to restart GraphicsMagick (e.g. for a slide-show or to use
+GraphicsMagick as the display engine for a different GUI). Also see the
++progress option for a way to disable progress indication for a clean look while
+loading new images.

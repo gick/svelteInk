@@ -1,0 +1,4 @@
+-snaps <value>
+number of screen snapshots
+Use this option to grab more than one image from the X server screen, to create
+an animation sequence.

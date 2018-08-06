@@ -1,0 +1,5 @@
+-update <seconds>
+detect when image file is modified and redisplay.
+Suppose that while you are displaying an image the file that is currently
+displayed is over-written.display will automatically detect that the input file
+has been changed and update the displayed image accordingly.
